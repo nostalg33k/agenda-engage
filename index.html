@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agenda — November 11, 2026</title>
+<style>
+  :root {
+    --bg: #f4f6fa;
+    --card: #ffffff;
+    --ink: #16202e;
+    --muted: #64748b;
+    --line: #e2e8f0;
+    --accent: #0d5f8a;
+    --room1: #0d5f8a;
+    --room2: #b45309;
+    --room3: #15803d;
+    --room4: #7c3aed;
+    --room5: #be123c;
+    --room6: #0e7490;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.5;
+  }
+  header.page {
+    background: linear-gradient(135deg, #0b3d5c 0%, #0d5f8a 55%, #1289b8 100%);
+    color: #fff;
+    padding: 40px 24px 34px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 2px 14px rgba(11, 61, 92, .25);
+  }
+  header.page h1 { margin: 0; font-size: 28px; letter-spacing: .3px; }
+  header.page p { margin: 8px 0 0; opacity: .85; font-size: 14px; }
+  main { max-width: 900px; margin: 0 auto; padding: 28px 16px 80px; }
+  .slot { margin-bottom: 36px; }
+  .slot-head {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin: 0 0 14px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--accent);
+  }
+  .slot-head h2 { margin: 0; font-size: 20px; color: var(--accent); }
+  .slot-head .range { font-size: 14px; color: var(--muted); }
+  .slot-head .count { margin-left: auto; font-size: 13px; color: var(--muted); }
+  .sessions { display: grid; gap: 10px; }
+  .session {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-left: 5px solid var(--room-color, var(--accent));
+    border-radius: 8px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, .06);
+  }
+  .session .time {
+    flex: 0 0 auto;
+    font-size: 13px;
+    color: var(--muted);
+    min-width: 118px;
+    font-variant-numeric: tabular-nums;
+  }
+  .session .title { flex: 1 1 auto; font-size: 15px; font-weight: 600; }
+  .room {
+    flex: 0 0 auto;
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+    background: var(--room-color, var(--accent));
+    padding: 4px 10px;
+    border-radius: 999px;
+    white-space: nowrap;
+    letter-spacing: .3px;
+  }
+  .r1 { --room-color: var(--room1); }
+  .r2 { --room-color: var(--room2); }
+  .r3 { --room-color: var(--room3); }
+  .r4 { --room-color: var(--room4); }
+  .r5 { --room-color: var(--room5); }
+  .r6 { --room-color: var(--room6); }
+  .legend {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 16px;
+    align-items: center;
+  }
+  .legend .label { font-size: 13px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .6px; }
+  .legend .room { font-size: 12px; }
+  footer.page {
+    text-align: center;
+    font-size: 12px;
+    color: var(--muted);
+    padding: 0 16px 40px;
+  }
+  @media (max-width: 640px) {
+    .session { flex-wrap: wrap; gap: 8px; }
+    .session .time { min-width: 0; }
+    .room { order: -1; }
+  }
+</style>
+</head>
+<body>
+
+<header class="page">
+  <h1>Agenda — November 11, 2026</h1>
+  <p>21 sessions · 4 time slots · Rooms 1–6</p>
+</header>
+
+<main>
+
+  <div class="legend">
+    <span class="label">Rooms</span>
+    <span class="room r1">Room 1</span>
+    <span class="room r2">Room 2</span>
+    <span class="room r3">Room 3</span>
+    <span class="room r4">Room 4</span>
+    <span class="room r5">Room 5</span>
+    <span class="room r6">Room 6</span>
+  </div>
+
+  <section class="slot">
+    <div class="slot-head">
+      <h2>11:30 AM</h2>
+      <span class="range">11:30 AM – 12:15 PM</span>
+      <span class="count">6 sessions</span>
+    </div>
+    <div class="sessions">
+      <div class="session r1">
+        <span class="time">11:30 AM – 12:15 PM</span>
+        <span class="title">Sécuriser la frontière de l'IA : Menaces sur les modèles, impact opérationnel et perspectives d'avenir</span>
+        <span class="room r1">Room 1</span>
+      </div>
+      <div class="session r2">
+        <span class="time">11:30 AM – 12:15 PM</span>
+        <span class="title">Stratégies de Sécurisation Réseau et agentique à l'Ère Post-Mythos</span>
+        <span class="room r2">Room 2</span>
+      </div>
+      <div class="session r3">
+        <span class="time">11:30 AM – 12:15 PM</span>
+        <span class="title">Nouveautés et innovations dans l'IIoT : vers l'industrie connectée de demain</span>
+        <span class="room r3">Room 3</span>
+      </div>
+      <div class="session r4">
+        <span class="time">11:30 AM – 12:15 PM</span>
+        <span class="title">Unified Edge Live! Déploiement éclair d'un cluster</span>
+        <span class="room r4">Room 4</span>
+      </div>
+      <div class="session r5">
+        <span class="time">11:30 AM – 12:15 PM</span>
+        <span class="title">Digital Resilience: Gestion moderne et optimisée des données et des coûts dans Splunk</span>
+        <span class="room r5">Room 5</span>
+      </div>
+      <div class="session r6">
+        <span class="time">11:30 AM – 12:15 PM</span>
+        <span class="title">Cisco IQ: Get control over your stack!</span>
+        <span class="room r6">Room 6</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="slot">
+    <div class="slot-head">
+      <h2>1:30 PM</h2>
+      <span class="range">1:30 PM – 2:15 PM</span>
+      <span class="count">6 sessions</span>
+    </div>
+    <div class="sessions">
+      <div class="session r1">
+        <span class="time">1:30 PM – 2:15 PM</span>
+        <span class="title">Accelerate Your Sales with Cisco Refresh</span>
+        <span class="room r1">Room 1</span>
+      </div>
+      <div class="session r2">
+        <span class="time">1:30 PM – 2:15 PM</span>
+        <span class="title">Nouveautés du portfolio Campus Switching + Cisco Secure Switching Networking</span>
+        <span class="room r2">Room 2</span>
+      </div>
+      <div class="session r3">
+        <span class="time">1:30 PM – 2:15 PM</span>
+        <span class="title">Maîtriser le pilotage et le dépannage des machines industrielles à l'ère du Physical AI</span>
+        <span class="room r3">Room 3</span>
+      </div>
+      <div class="session r4">
+        <span class="time">1:30 PM – 2:15 PM</span>
+        <span class="title">Nexus News! Nouveaux Switches, Nouveaux OS's... Votre choix!</span>
+        <span class="room r4">Room 4</span>
+      </div>
+      <div class="session r5">
+        <span class="time">1:30 PM – 2:15 PM</span>
+        <span class="title">Network Observability - Etat de l'art 2026</span>
+        <span class="room r5">Room 5</span>
+      </div>
+      <div class="session r6">
+        <span class="time">1:30 PM – 2:15 PM</span>
+        <span class="title">Fewer Rules, Shorter Change Windows: Intent-Based Firewall Policy Operations</span>
+        <span class="room r6">Room 6</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="slot">
+    <div class="slot-head">
+      <h2>2:30 PM</h2>
+      <span class="range">2:30 PM – 3:15 PM</span>
+      <span class="count">6 sessions</span>
+    </div>
+    <div class="sessions">
+      <div class="session r1">
+        <span class="time">2:30 PM – 3:15 PM</span>
+        <span class="title">Cisco IQ : La nouvelle arme secrète de vos offres Services</span>
+        <span class="room r1">Room 1</span>
+      </div>
+      <div class="session r2">
+        <span class="time">2:30 PM – 3:15 PM</span>
+        <span class="title">Vos questions gérées par AI assistant dans CatC et Meraki dashboard, vos simulations opérées par ChatGPT avec CatC et CML</span>
+        <span class="room r2">Room 2</span>
+      </div>
+      <div class="session r3">
+        <span class="time">2:30 PM – 3:15 PM</span>
+        <span class="title">Capture the Flag : Sécurisez l'Industrie avec Cyber Vision</span>
+        <span class="room r3">Room 3</span>
+      </div>
+      <div class="session r4">
+        <span class="time">2:30 PM – 3:15 PM</span>
+        <span class="title">Practical usage of Agentic AI to operate your Cisco Datacenter</span>
+        <span class="room r4">Room 4</span>
+      </div>
+      <div class="session r5">
+        <span class="time">2:30 PM – 3:15 PM</span>
+        <span class="title">Agent Observability - Qui traque quand mon agent tique?</span>
+        <span class="room r5">Room 5</span>
+      </div>
+      <div class="session r6">
+        <span class="time">2:30 PM – 3:15 PM</span>
+        <span class="title">From Rules to Intent: Multi-Vendor Segmentation Policy for Hybrid Mesh Firewall</span>
+        <span class="room r6">Room 6</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="slot">
+    <div class="slot-head">
+      <h2>3:30 PM</h2>
+      <span class="range">3:30 PM – 4:15 PM</span>
+      <span class="count">3 sessions</span>
+    </div>
+    <div class="sessions">
+      <div class="session r1">
+        <span class="time">3:30 PM – 4:15 PM</span>
+        <span class="title">Trust &amp; Souveraineté</span>
+        <span class="room r1">Room 1</span>
+      </div>
+      <div class="session r2">
+        <span class="time">3:30 PM – 4:15 PM</span>
+        <span class="title">Capture the Flag : Explorez Secure Networking et l'AgenticOps à travers Cisco Cloud Control</span>
+        <span class="room r2">Room 2</span>
+      </div>
+      <div class="session r3">
+        <span class="time">3:30 PM – 4:15 PM</span>
+        <span class="title">AI Adoption - Des cas d'usage qui ont du sens sur des Agents on-premise</span>
+        <span class="room r3">Room 3</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="page">
+  Generated from Sessions.xlsx · Room assignments are mock locations.
+</footer>
+
+</body>
+</html>
