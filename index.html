@@ -23,22 +23,19 @@
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body { margin: 0; min-width: 320px; }
-
+    
 .hero {
   padding: 0;
-  background:
-    radial-gradient(circle at 88% 10%, #176eab 0, transparent 32%),
-    linear-gradient(135deg, var(--bg), var(--bg-2));
+  background:#071b36;
 }
 .hero-banner {
   width: 100%;
-  max-height: 230px;
-  object-fit: cover;
+  height: auto;          /* garde les proportions */
+  max-height: none;      /* supprime la contrainte qui coupait */
+  object-fit: contain;   /* affiche l’image en entier */
+  object-position: center top;
   display: block;
-  border-bottom: 3px solid var(--cisco-blue);
-}
-.hero-content {
-  padding: clamp(28px, 5vw, 70px) clamp(20px, 5vw, 76px) 32px;
+  border-bottom: 0;      /* supprime la ligne bleue */
 }
 
 .eyebrow {
