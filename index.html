@@ -182,6 +182,223 @@ main {
 @media (max-width: 980px) {
   .card { grid-template-columns: 1fr; align-items: start; }
 }
+
+    /* Big screen mode */
+@media (min-width: 1600px) {
+  .hero-content {
+    padding: 56px 96px 42px;
+  }
+
+  .eyebrow {
+    font-size: 1.5rem;
+    letter-spacing: .14em;
+  }
+
+  h1 {
+    font-size: clamp(4.2rem, 5vw, 6.6rem);
+  }
+
+  .controls {
+    padding: 20px 96px;
+  }
+
+  .dates button,
+  .search {
+    min-height: 76px;
+    font-size: 1.35rem;
+    border-radius: 16px;
+  }
+
+  main {
+    max-width: 1880px;
+    padding: 36px 96px 120px;
+  }
+
+  #dayTitle { font-size: 3.6rem; }
+  #daySummary { font-size: 1.6rem; }
+
+  .slot-time {
+    font-size: 1.5rem;
+    padding: 14px 22px;
+    border-radius: 14px;
+  }
+
+  .cards {
+    gap: 16px;
+  }
+
+  .card {
+    min-height: 132px;
+    padding: 22px 26px;
+    border-radius: 18px;
+  }
+
+  .card h3 {
+    font-size: clamp(1.5rem, 1.7vw, 2rem);
+    line-height: 1.25;
+  }
+
+  .speaker {
+    font-size: 1.2rem;
+  }
+
+  .room {
+    font-size: 1.15rem;
+    padding: 12px 18px;
+  }
+}
+
+/* ===== Very Large LED Wall Mode ===== */
+@media (min-width: 1920px) {
+  :root {
+    --line: #3f6a8e;
+    --text-soft: #d9ecf8;
+    --card-a: #15486f;
+    --card-b: #123b60;
+  }
+
+  body {
+    letter-spacing: 0.01em;
+  }
+
+  .hero-banner {
+    width: 100%;
+    max-height: none;
+    height: auto;
+    object-fit: contain;
+    object-position: center top;
+  }
+
+  .hero-content {
+    padding: 68px 120px 50px;
+  }
+
+  .eyebrow {
+    font-size: 1.8rem;
+    margin-bottom: 16px;
+  }
+
+  h1 {
+    font-size: clamp(5.2rem, 6.2vw, 8rem);
+    line-height: 1.02;
+    max-width: 1600px;
+  }
+
+  .intro {
+    font-size: clamp(1.6rem, 2vw, 2.2rem);
+    margin-top: 24px;
+    max-width: 1300px;
+  }
+
+  .controls {
+    padding: 24px 120px;
+  }
+
+  .control-inner {
+    gap: 18px;
+    max-width: 2200px;
+  }
+
+  .dates button,
+  .search {
+    min-height: 92px;
+    font-size: 1.55rem;
+    border-width: 3px;
+    border-radius: 18px;
+    padding: 16px 24px;
+  }
+
+  main {
+    max-width: 2200px;
+    padding: 44px 120px 140px;
+  }
+
+  .day-heading {
+    margin: 18px 0 34px;
+    gap: 24px;
+  }
+
+  #dayTitle {
+    font-size: clamp(3.6rem, 4.2vw, 5.2rem);
+    margin: 0;
+  }
+
+  #daySummary {
+    font-size: clamp(1.5rem, 2vw, 2rem);
+    margin: 0;
+    color: var(--text-soft);
+    font-weight: 600;
+  }
+
+  .slot {
+    margin-bottom: 44px;
+  }
+
+  .slot-header {
+    margin-bottom: 18px;
+    gap: 20px;
+  }
+
+  .slot-time {
+    font-size: 1.85rem;
+    padding: 16px 24px;
+    border-radius: 16px;
+    min-width: 260px;
+    text-align: center;
+  }
+
+  .slot-line {
+    height: 3px;
+  }
+
+  .cards {
+    gap: 18px;
+  }
+
+  .card {
+    min-height: 158px;
+    padding: 26px 30px;
+    border-radius: 20px;
+    border-width: 2px;
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .card h3 {
+    font-size: clamp(1.9rem, 2vw, 2.5rem);
+    line-height: 1.2;
+    font-weight: 800;
+  }
+
+  .card-main {
+    gap: 10px;
+  }
+
+  .speaker {
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: #e3f3ff;
+  }
+
+  .room {
+    font-size: 1.3rem;
+    font-weight: 900;
+    padding: 14px 22px;
+    border-radius: 999px;
+  }
+
+  .room::before {
+    font-size: 0.9em;
+  }
+}
+
+/* Optional ultra-wide 4K bump */
+@media (min-width: 3000px) {
+  h1 { font-size: clamp(6.4rem, 6vw, 9rem); }
+  .card h3 { font-size: clamp(2.2rem, 1.9vw, 2.9rem); }
+  .speaker { font-size: 1.55rem; }
+  .slot-time { font-size: 2.1rem; }
+}
+    
   </style>
 </head>
 <body>
