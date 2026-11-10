@@ -1,289 +1,457 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Agenda — November 11, 2026</title>
-<style>
-  :root {
-    --bg: #f4f6fa;
-    --card: #ffffff;
-    --ink: #16202e;
-    --muted: #64748b;
-    --line: #e2e8f0;
-    --accent: #0d5f8a;
-    --room1: #0d5f8a;
-    --room2: #b45309;
-    --room3: #15803d;
-    --room4: #7c3aed;
-    --room5: #be123c;
-    --room6: #0e7490;
-  }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--ink);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    line-height: 1.5;
-  }
-  header.page {
-    background: linear-gradient(135deg, #0b3d5c 0%, #0d5f8a 55%, #1289b8 100%);
-    color: #fff;
-    padding: 40px 24px 34px;
-    text-align: center;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    box-shadow: 0 2px 14px rgba(11, 61, 92, .25);
-  }
-  header.page h1 { margin: 0; font-size: 28px; letter-spacing: .3px; }
-  header.page p { margin: 8px 0 0; opacity: .85; font-size: 14px; }
-  main { max-width: 900px; margin: 0 auto; padding: 28px 16px 80px; }
-  .slot { margin-bottom: 36px; }
-  .slot-head {
-    display: flex;
-    align-items: baseline;
-    gap: 12px;
-    margin: 0 0 14px;
-    padding-bottom: 8px;
-    border-bottom: 2px solid var(--accent);
-  }
-  .slot-head h2 { margin: 0; font-size: 20px; color: var(--accent); }
-  .slot-head .range { font-size: 14px; color: var(--muted); }
-  .slot-head .count { margin-left: auto; font-size: 13px; color: var(--muted); }
-  .sessions { display: grid; gap: 10px; }
-  .session {
-    background: var(--card);
-    border: 1px solid var(--line);
-    border-left: 5px solid var(--room-color, var(--accent));
-    border-radius: 8px;
-    padding: 14px 16px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    box-shadow: 0 1px 3px rgba(15, 23, 42, .06);
-  }
-  .session .time {
-    flex: 0 0 auto;
-    font-size: 13px;
-    color: var(--muted);
-    min-width: 118px;
-    font-variant-numeric: tabular-nums;
-  }
-  .session .title { flex: 1 1 auto; font-size: 15px; font-weight: 600; }
-  .room {
-    flex: 0 0 auto;
-    font-size: 12px;
-    font-weight: 700;
-    color: #fff;
-    background: var(--room-color, var(--accent));
-    padding: 4px 10px;
-    border-radius: 999px;
-    white-space: nowrap;
-    letter-spacing: .3px;
-  }
-  .r1 { --room-color: var(--room1); }
-  .r2 { --room-color: var(--room2); }
-  .r3 { --room-color: var(--room3); }
-  .r4 { --room-color: var(--room4); }
-  .r5 { --room-color: var(--room5); }
-  .r6 { --room-color: var(--room6); }
-  .legend {
-    background: var(--card);
-    border: 1px solid var(--line);
-    border-radius: 8px;
-    padding: 14px 16px;
-    margin-bottom: 30px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px 16px;
-    align-items: center;
-  }
-  .legend .label { font-size: 13px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .6px; }
-  .legend .room { font-size: 12px; }
-  footer.page {
-    text-align: center;
-    font-size: 12px;
-    color: var(--muted);
-    padding: 0 16px 40px;
-  }
-  @media (max-width: 640px) {
-    .session { flex-wrap: wrap; gap: 8px; }
-    .session .time { min-width: 0; }
-    .room { order: -1; }
-  }
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07182D">
+  <title>Cisco Engage — Trouvez votre session</title>
+  <style>
+    :root {
+  font-family: Inter, ui-sans-serif, system-ui, Arial, sans-serif;
+  color: #f5faff;
+  background: #071b36;
+  --bg: #071b36;
+  --bg-2: #103e70;
+  --line: #315977;
+  --text-soft: #c8e2f2;
+  --cisco-blue: #02C8FF;
+  --mid-blue: #0A60FF;
+  --card-a: #123b60;
+  --card-b: #0d2d4d;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; min-width: 320px; }
+
+.hero {
+  padding: 0;
+  background:
+    radial-gradient(circle at 88% 10%, #176eab 0, transparent 32%),
+    linear-gradient(135deg, var(--bg), var(--bg-2));
+}
+.hero-banner {
+  width: 100%;
+  max-height: 230px;
+  object-fit: cover;
+  display: block;
+  border-bottom: 3px solid var(--cisco-blue);
+}
+.hero-content {
+  padding: clamp(28px, 5vw, 70px) clamp(20px, 5vw, 76px) 32px;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: #79d5ff;
+  font-size: clamp(1rem, 1.7vw, 1.35rem);
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+h1 {
+  max-width: 1000px;
+  margin: 0;
+  font-size: clamp(2.5rem, 6vw, 5.5rem);
+  line-height: 1.04;
+  letter-spacing: -.045em;
+}
+
+.intro {
+  margin: 20px 0 0;
+  color: var(--text-soft);
+  font-size: clamp(1.1rem, 2vw, 1.65rem);
+  line-height: 1.4;
+}
+
+.controls {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  padding: 16px clamp(20px, 5vw, 76px);
+  border-bottom: 1px solid var(--line);
+  background: rgb(7 27 54 / 96%);
+  backdrop-filter: blur(12px);
+}
+
+.control-inner {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  max-width: 1600px;
+  margin: auto;
+}
+
+.dates { display: flex; gap: 10px; overflow-x: auto; padding: 3px 2px 8px; }
+.dates button {
+  min-height: 60px;
+  padding: 12px 22px;
+  border: 2px solid #5683a4;
+  border-radius: 14px;
+  background: #103453;
+  color: #fff;
+  font: inherit;
+  font-weight: 750;
+  cursor: pointer;
+}
+.dates button[aria-pressed="true"] {
+  border-color: #64d4ff;
+  background: #d7f5ff;
+  color: #082440;
+}
+
+.search {
+  flex: 1 1 260px;
+  min-width: 200px;
+  min-height: 60px;
+  padding: 12px 18px;
+  border: 2px solid #5683a4;
+  border-radius: 14px;
+  background: #fff;
+  color: #082440;
+  font: inherit;
+}
+
+main {
+  max-width: 1600px;
+  margin: auto;
+  padding: 28px clamp(20px, 5vw, 76px) 100px;
+}
+
+.slot { margin: 0 0 36px; }
+.slot-header { display: flex; align-items: center; gap: 18px; margin: 0 0 14px; }
+.slot-time {
+  padding: 10px 16px;
+  border-radius: 12px;
+  background: #1b6593;
+  color: #fff;
+  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+  font-weight: 800;
+}
+.slot-line { height: 2px; flex: 1; background: var(--line); }
+
+/* one session per row */
+.cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) auto;
+  align-items: center;
+  gap: 14px;
+  min-height: 92px;
+  padding: 16px 20px;
+  border: 1px solid #497395;
+  border-radius: 14px;
+  background: linear-gradient(150deg, var(--card-a), var(--card-b));
+  box-shadow: 0 12px 28px rgb(0 0 0 / 14%);
+}
+
+.card-main {
+  display: flex;
+  flex-direction: column;
+  gap: 6px; /* spacing between title and Intervenant */
+}
+
+.card h3 {
+  margin: 0;
+  font-size: clamp(1.05rem, 1.4vw, 1.35rem);
+  line-height: 1.25;
+}
+.speaker {
+  color: var(--text-soft);
+  font-size: .95rem;
+  white-space: nowrap;
+}
+.room {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 14px;
+  border-radius: 999px;
+  background: #dcf6ff;
+  color: #092b49;
+  font-size: .95rem;
+  font-weight: 850;
+  white-space: nowrap;
+}
+.room::before { content: "●"; color: #0786bb; font-size: .75em; }
+
+@media (max-width: 980px) {
+  .card { grid-template-columns: 1fr; align-items: start; }
+}
+  </style>
 </head>
 <body>
+  <header class="hero">
+    <img class="hero-banner" src="./banner.jpg" alt="Bannière Cisco Engage">
+  </header>
 
-<header class="page">
-  <h1>Agenda — November 11, 2026</h1>
-  <p>21 sessions · 4 time slots · Rooms 1–6</p>
-</header>
-
-<main>
-
-  <div class="legend">
-    <span class="label">Rooms</span>
-    <span class="room r1">Room 1</span>
-    <span class="room r2">Room 2</span>
-    <span class="room r3">Room 3</span>
-    <span class="room r4">Room 4</span>
-    <span class="room r5">Room 5</span>
-    <span class="room r6">Room 6</span>
-  </div>
-
-  <section class="slot">
-    <div class="slot-head">
-      <h2>11:30 AM</h2>
-      <span class="range">11:30 AM – 12:15 PM</span>
-      <span class="count">6 sessions</span>
+  <nav class="controls" aria-label="Contrôles du programme">
+    <div class="control-inner">
+      <div class="dates" id="dates" aria-label="Sélectionner une date"></div>
+      <input
+        class="search"
+        id="search"
+        type="search"
+        aria-label="Rechercher des sessions ou des salles"
+        placeholder="Rechercher une session ou une salle">
     </div>
-    <div class="sessions">
-      <div class="session r1">
-        <span class="time">11:30 AM – 12:15 PM</span>
-        <span class="title">Sécuriser la frontière de l'IA : Menaces sur les modèles, impact opérationnel et perspectives d'avenir</span>
-        <span class="room r1">Room 1</span>
-      </div>
-      <div class="session r2">
-        <span class="time">11:30 AM – 12:15 PM</span>
-        <span class="title">Stratégies de Sécurisation Réseau et agentique à l'Ère Post-Mythos</span>
-        <span class="room r2">Room 2</span>
-      </div>
-      <div class="session r3">
-        <span class="time">11:30 AM – 12:15 PM</span>
-        <span class="title">Nouveautés et innovations dans l'IIoT : vers l'industrie connectée de demain</span>
-        <span class="room r3">Room 3</span>
-      </div>
-      <div class="session r4">
-        <span class="time">11:30 AM – 12:15 PM</span>
-        <span class="title">Unified Edge Live! Déploiement éclair d'un cluster</span>
-        <span class="room r4">Room 4</span>
-      </div>
-      <div class="session r5">
-        <span class="time">11:30 AM – 12:15 PM</span>
-        <span class="title">Digital Resilience: Gestion moderne et optimisée des données et des coûts dans Splunk</span>
-        <span class="room r5">Room 5</span>
-      </div>
-      <div class="session r6">
-        <span class="time">11:30 AM – 12:15 PM</span>
-        <span class="title">Cisco IQ: Get control over your stack!</span>
-        <span class="room r6">Room 6</span>
-      </div>
-    </div>
-  </section>
+  </nav>
 
-  <section class="slot">
-    <div class="slot-head">
-      <h2>1:30 PM</h2>
-      <span class="range">1:30 PM – 2:15 PM</span>
-      <span class="count">6 sessions</span>
+  <main id="main">
+    <div class="day-heading">
+      <h2 id="dayTitle"></h2>
+      <h3 id="daySummary"></h3>
     </div>
-    <div class="sessions">
-      <div class="session r1">
-        <span class="time">1:30 PM – 2:15 PM</span>
-        <span class="title">Accelerate Your Sales with Cisco Refresh</span>
-        <span class="room r1">Room 1</span>
-      </div>
-      <div class="session r2">
-        <span class="time">1:30 PM – 2:15 PM</span>
-        <span class="title">Nouveautés du portfolio Campus Switching + Cisco Secure Switching Networking</span>
-        <span class="room r2">Room 2</span>
-      </div>
-      <div class="session r3">
-        <span class="time">1:30 PM – 2:15 PM</span>
-        <span class="title">Maîtriser le pilotage et le dépannage des machines industrielles à l'ère du Physical AI</span>
-        <span class="room r3">Room 3</span>
-      </div>
-      <div class="session r4">
-        <span class="time">1:30 PM – 2:15 PM</span>
-        <span class="title">Nexus News! Nouveaux Switches, Nouveaux OS's... Votre choix!</span>
-        <span class="room r4">Room 4</span>
-      </div>
-      <div class="session r5">
-        <span class="time">1:30 PM – 2:15 PM</span>
-        <span class="title">Network Observability - Etat de l'art 2026</span>
-        <span class="room r5">Room 5</span>
-      </div>
-      <div class="session r6">
-        <span class="time">1:30 PM – 2:15 PM</span>
-        <span class="title">Fewer Rules, Shorter Change Windows: Intent-Based Firewall Policy Operations</span>
-        <span class="room r6">Room 6</span>
-      </div>
-    </div>
-  </section>
+    <div id="schedule"></div>
+  </main>
 
-  <section class="slot">
-    <div class="slot-head">
-      <h2>2:30 PM</h2>
-      <span class="range">2:30 PM – 3:15 PM</span>
-      <span class="count">6 sessions</span>
-    </div>
-    <div class="sessions">
-      <div class="session r1">
-        <span class="time">2:30 PM – 3:15 PM</span>
-        <span class="title">Cisco IQ : La nouvelle arme secrète de vos offres Services</span>
-        <span class="room r1">Room 1</span>
-      </div>
-      <div class="session r2">
-        <span class="time">2:30 PM – 3:15 PM</span>
-        <span class="title">Vos questions gérées par AI assistant dans CatC et Meraki dashboard, vos simulations opérées par ChatGPT avec CatC et CML</span>
-        <span class="room r2">Room 2</span>
-      </div>
-      <div class="session r3">
-        <span class="time">2:30 PM – 3:15 PM</span>
-        <span class="title">Capture the Flag : Sécurisez l'Industrie avec Cyber Vision</span>
-        <span class="room r3">Room 3</span>
-      </div>
-      <div class="session r4">
-        <span class="time">2:30 PM – 3:15 PM</span>
-        <span class="title">Practical usage of Agentic AI to operate your Cisco Datacenter</span>
-        <span class="room r4">Room 4</span>
-      </div>
-      <div class="session r5">
-        <span class="time">2:30 PM – 3:15 PM</span>
-        <span class="title">Agent Observability - Qui traque quand mon agent tique?</span>
-        <span class="room r5">Room 5</span>
-      </div>
-      <div class="session r6">
-        <span class="time">2:30 PM – 3:15 PM</span>
-        <span class="title">From Rules to Intent: Multi-Vendor Segmentation Policy for Hybrid Mesh Firewall</span>
-        <span class="room r6">Room 6</span>
-      </div>
-    </div>
-  </section>
+  <script>
+    "use strict";
 
-  <section class="slot">
-    <div class="slot-head">
-      <h2>3:30 PM</h2>
-      <span class="range">3:30 PM – 4:15 PM</span>
-      <span class="count">3 sessions</span>
-    </div>
-    <div class="sessions">
-      <div class="session r1">
-        <span class="time">3:30 PM – 4:15 PM</span>
-        <span class="title">Trust &amp; Souveraineté</span>
-        <span class="room r1">Room 1</span>
-      </div>
-      <div class="session r2">
-        <span class="time">3:30 PM – 4:15 PM</span>
-        <span class="title">Capture the Flag : Explorez Secure Networking et l'AgenticOps à travers Cisco Cloud Control</span>
-        <span class="room r2">Room 2</span>
-      </div>
-      <div class="session r3">
-        <span class="time">3:30 PM – 4:15 PM</span>
-        <span class="title">AI Adoption - Des cas d'usage qui ont du sens sur des Agents on-premise</span>
-        <span class="room r3">Room 3</span>
-      </div>
-    </div>
-  </section>
+    const TITLES = [
+      "Sécuriser la frontière de l'IA : Menaces sur les modèles, impact opérationnel et perspectives d'avenir",
+      "Stratégies de Sécurisation Réseau et agentique à l’Ère Post-Mythos",
+      "Nouveautés et innovations dans l’IIoT : vers l’industrie connectée de demain",
+      "Unified Edge Live! Déploiement éclair d'un cluster.",
+      "Digital Resilience: Gestion moderne et optimisée des données et des coûts dans Splunk",
+      "Cisco IQ: Get control over your stack!",
+      "Accelerate Your Sales with Cisco Refresh",
+      "Nouveautés du portfolio Campus Switching + Cisco Secure Switching Networking",
+      "Maîtriser le pilotage et le dépannage des machines industrielles à l’ère du Physical AI",
+      "Nexus News! Nouveaux Switches, Nouveaux OS's... Votre choix !",
+      "Network Observability - Etat de l’art 2026",
+      "Fewer Rules, Shorter Change Windows: Intent-Based Firewall Policy Operations",
+      "Cisco IQ : La nouvelle arme secrète de vos offres Services",
+      "Vos questions gérées par AI assistant dans CatC et Meraki dashboard, vos simulations opérées par ChatGPT avec CatC et CML",
+      "Capture the Flag : Sécurisez l’Industrie avec Cyber Vision",
+      "Practical usage of Agentic AI to operate your Cisco Datacenter",
+      "Agent Observability - Qui traque quand mon agent tique?",
+      "From Rules to Intent: Multi-Vendor Segmentation Policy for Hybrid Mesh Firewall",
+      "Trust & Souveraineté",
+      "Capture the Flag : Explorez Secure Networking et l'AgenticOps à travers Cisco Cloud Control",
+      "AI Adoption - Des cas d’usage qui ont du sens sur des Agents on-premise",
+      "Live Protect: N'attendez plus les correctifs pour neutraliser les vulnérabilités",
+      "La révolution eBPF pour le reseau, l'observabilité et la sécurité",
+      "From CLI to Cloud: Unlocking Catalyst Switch Management in Meraki Dashboard",
+      "Feuille de Route SSE: Maitrisez la transition d'Umbrella à Secure Access",
+      "Ask, Don't Click: Simplifying Network Operations with AI and Catalyst Center",
+      "Cartographie des solutions Cisco pour sécuriser l'IA",
+      "Cisco IQ: Ask me Anything, and how do I get started"
+    ];
 
-</main>
+    const ROOMS = {
+      F: "RC - Valais + Fribourg",
+      J: "RC - Jura",
+      V: "RC - Vaud",
+      Z: "1er - ZH-Berne",
+      U: "2ème - Uri",
+      T: "4ème - Ticino"
+    };
 
-<footer class="page">
-  Generated from Sessions.xlsx · Room assignments are mock locations.
-</footer>
+    const TIMES = ["11:30 – 12:15", "13:30 – 14:15", "14:30 – 15:15", "15:30 – 16:15"];
+    
+    const SPEAKER_NAMES = [
+  "Frank Michaud",
+  "Laurent Bettex",
+  "Sarah-Louise Justin",
+  "Romaric Guilloud / Gustavo Novais",
+  "Eric De Bressing / Gwen Blum",
+  "Peter Charpentier",
+  "Charlotte Dolan",
+  "Vincent Meoni",
+  "Gustavo Novais",
+  "Gwen Blum / Eric De Bressing",
+  "Majda Chouaib",
+  "Sebastian Wall",
+  "Jean-Francois Pujol",
+  "Sandrine Henry",
+  "Eric De Bressing / Gwen Blum",
+  "Raphael Pinson",
+  "Albano Janelas",
+  "Ange Andries",
+  "Albano Janelas",
+];
 
+const RAW = `
+11|1|2|F|2
+11|1|0|J|0
+11|1|1|V|1
+11|1|3|Z|3
+11|1|5|U|5
+11|1|4|T|4
+11|2|7|F|7
+11|2|9|V|8
+11|2|6|J|6
+11|2|10|Z|9
+11|2|8|U|2
+11|2|11|T|10
+11|3|15|F|5
+11|3|12|V|11
+11|3|13|Z|12
+11|3|14|J|2
+11|3|16|U|9
+11|3|17|T|10
+11|4|20|F|4
+11|4|18|V|13
+11|4|19|J|17
+12|1|1|F|1
+12|1|2|J|2
+12|1|4|V|4
+12|1|5|Z|5
+12|2|7|F|7
+12|2|10|V|9
+12|2|9|J|8
+12|2|8|Z|2
+12|3|13|F|12
+12|3|15|V|5
+12|3|11|Z|10
+12|3|14|J|2
+12|3|16|U|9
+12|4|20|F|4
+12|4|19|J|17
+12|4|17|V|10
+17|1|0|F|0
+17|1|1|J|1
+17|1|5|V|5
+17|1|21|Z|15
+17|1|3|U|3
+17|1|4|T|4
+17|2|7|F|7
+17|2|10|Z|9
+17|2|6|J|6
+17|2|23|T|16
+17|2|22|U|15
+17|3|9|J|8
+17|3|24|F|17
+17|3|12|V|11
+17|3|16|Z|9
+17|3|25|T|16
+17|4|26|F|17
+17|4|18|J|13
+17|4|20|V|4
+18|1|1|F|1
+18|1|21|J|15
+18|1|3|V|3
+18|1|5|Z|5
+18|2|7|F|7
+18|2|9|V|8
+18|2|10|J|9
+18|2|27|T|5
+18|3|15|F|5
+18|3|23|V|16
+18|3|13|Z|12
+18|3|19|J|17
+18|4|25|F|16
+18|4|20|V|4
+18|4|26|J|17
+18|4|21|T|15
+`.trim();
+
+const sessions = RAW.split("\n").map(line => {
+  const [day, slot, titleId, roomCode, speakerId] = line.split("|");
+  return {
+    day,
+    slot: Number(slot),
+    title: TITLES[Number(titleId)],
+    room: ROOMS[roomCode],
+    speaker: SPEAKER_NAMES[Number(speakerId)] || "À confirmer"
+  };
+});
+
+    const dates = ["11"];
+    // const dates = ["11", "12", "17", "18"]; // Jours conservés mais masqués (11 uniquement visible)
+
+    const dateBar = document.getElementById("dates");
+    const search = document.getElementById("search");
+    const schedule = document.getElementById("schedule");
+    const dayTitle = document.getElementById("dayTitle");
+    const daySummary = document.getElementById("daySummary");
+
+    let selectedDay = "11";
+
+    function element(tag, text, className = "") {
+      const item = document.createElement(tag);
+      item.textContent = text;
+      if (className) item.className = className;
+      return item;
+    }
+
+    function normalize(value) {
+      return value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase().trim();
+    }
+
+    function render() {
+      dateBar.replaceChildren();
+
+      for (const day of dates) {
+        const button = element("button", `Nov ${day}`);
+        button.type = "button";
+        button.setAttribute("aria-pressed", String(day === selectedDay));
+        button.addEventListener("click", () => {
+          selectedDay = day;
+          search.value = "";
+          render();
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+        //dateBar.append(button);
+      }
+
+      const query = normalize(search.value);
+      const visible = sessions.filter(session =>
+        session.day === selectedDay &&
+        (!query || normalize(`${session.title} ${session.room} ${TIMES[session.slot - 1]}`).includes(query))
+      );
+
+      dayTitle.textContent = `11 novembre`;
+      daySummary.textContent = query
+        ? `${visible.length} session(s) correspondante(s)`
+        : "Programme des sessions et affectation des salles";
+
+      schedule.replaceChildren();
+
+      if (!visible.length) {
+        schedule.append(element("p", "Aucune session ne correspond à votre recherche.", "empty"));
+        return;
+      }
+
+      for (let slot = 1; slot <= 4; slot++) {
+        const entries = visible.filter(item => item.slot === slot);
+        if (!entries.length) continue;
+
+        const section = element("section", "", "slot");
+        const heading = element("div", "", "slot-header");
+        heading.append(element("span", TIMES[slot - 1], "slot-time"), element("span", "", "slot-line"));
+
+        const cards = element("div", "", "cards");
+
+        entries.forEach((entry, index) => {
+          
+          const card = element("article", "", `card`);
+
+          const title = element("h3", entry.title);
+          const speaker = element("span", `Intervenant : ${entry.speaker}`, "speaker");
+          const room = element("span", entry.room, "room");
+
+          const main = element("div", "", "card-main");
+main.append(title, speaker);
+card.append(main, room);
+          cards.append(card);
+        });
+
+        section.append(heading, cards);
+        schedule.append(section);
+      }
+    }
+
+    search.addEventListener("input", render);
+    render();
+  </script>
 </body>
 </html>
