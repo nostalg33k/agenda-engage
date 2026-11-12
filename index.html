@@ -553,7 +553,7 @@ const sessions = RAW.split("\n").map(line => {
     const dayTitle = document.getElementById("dayTitle");
     const daySummary = document.getElementById("daySummary");
 
-    let selectedDay = "11";
+    let selectedDay = "12";
 
     function element(tag, text, className = "") {
       const item = document.createElement(tag);
@@ -588,7 +588,7 @@ const sessions = RAW.split("\n").map(line => {
         (!query || normalize(`${session.title} ${session.room} ${TIMES[session.slot - 1]}`).includes(query))
       );
 
-      dayTitle.textContent = `11 novembre`;
+      dayTitle.textContent = `12 novembre`;
       daySummary.textContent = query
         ? `${visible.length} session(s) correspondante(s)`
         : "Programme des sessions et affectation des salles";
