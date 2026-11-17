@@ -545,7 +545,7 @@ const sessions = RAW.split("\n").map(line => {
   };
 });
 
-    const dates = ["17"];
+    const dates = ["18"];
     // const dates = ["11", "12", "17", "18"]; // Jours conservés mais masqués (11 uniquement visible)
 
     const dateBar = document.getElementById("dates");
@@ -589,7 +589,7 @@ const sessions = RAW.split("\n").map(line => {
         (!query || normalize(`${session.title} ${session.room} ${TIMES[session.slot - 1]}`).includes(query))
       );
 
-      dayTitle.textContent = `17 novembre`;
+      dayTitle.textContent = `18 novembre`;
       daySummary.textContent = query
         ? `${visible.length} session(s) correspondante(s)`
         : "Programme des sessions et affectation des salles";
