@@ -384,9 +384,9 @@ main {
   </nav>
 
   <main id="main">
-    <div class="day-heading">
-      <h2 id="dayTitle"></h2>
-      <h3 id="daySummary"></h3>
+    <div class="-heading">
+      <h2 id="Title"></h2>
+      <h3 id="Summary"></h3>
     </div>
     <div id="schedule"></div>
   </main>
@@ -554,7 +554,7 @@ const sessions = RAW.split("\n").map(line => {
     const dayTitle = document.getElementById("dayTitle");
     const daySummary = document.getElementById("daySummary");
 
-    let selectedDay = "17";
+    let selectedDay = "18";
 
     function element(tag, text, className = "") {
       const item = document.createElement(tag);
